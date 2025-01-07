@@ -3,9 +3,10 @@ class Main{
         //Print numbers from N to 1
         //calculate factorial of a number
         //print the sum of first N natural numbers.
-        printDec(10);
-        System.out.println(factorial(5));
-        System.out.println(sum(5));
+        // printDec(10);
+        // System.out.println(factorial(5));
+        // System.out.println(sum(5));
+        System.out.println(fibonacci(6));
 
     }
     public static void printDec(int N){
@@ -33,6 +34,13 @@ class Main{
         int snM1 = sum(N-1);
         int ans = N + snM1;
         return ans;
+    }
+    public static int fibonacci(int N){
+        if(N == 0) return 0;
+        if(N == 1) return 1;
+        int ans = fibonacci(N-1) + fibonacci(N-2);
+        return ans;
+            
     }
 }
 // Note - Base Case is important to avoid Stack Overflow
