@@ -7,9 +7,11 @@ class Main{
         // System.out.println(factorial(5));
         // System.out.println(sum(5));
         // System.out.println(fibonacci(6));
-        int[] arr = {2, 4, 0, 1, 0};
-        System.out.println(findKey(arr, 0, 0));
-        System.out.println(findLastKey(arr, 0, 0));
+        // int[] arr = {2, 4, 0, 1, 0};
+        // System.out.println(findKey(arr, 0, 0));
+        // System.out.println(findLastKey(arr, 0, 0));
+        System.out.println(expo(3, 10));
+        System.out.println(expoOptimized(3, 10));
 
     }
     public static void printDec(int N){
@@ -66,6 +68,27 @@ class Main{
         int ans = fibonacci(N-1) + fibonacci(N-2);
         return ans;
             
+    }
+    //Print X to the power N using Recursion
+    //here the time complexity is O(N)..N ---> 0
+    public static int expo(int x, int n){
+        //When it comes to writing a Base Case we know what is the output for that case.
+        if(n == 1){
+            return x; 
+        }
+        int ans = x * expo(x, n-1);
+        return ans;
+    }
+    //Optimized way to solve the expo question in O(logN) time complexity
+    public static int expoOptimized(int x, int n){
+        if(n == 1){
+            return x;
+        }
+        int ans;
+        if(n%2 == 0)
+              ans = expoOptimized(x, n/2) * expoOptimized(x, n/2);
+        else  ans = x * expoOptimized(x, n/2) * expoOptimized(x, n/2);
+        return ans;    
     }
     
 }
